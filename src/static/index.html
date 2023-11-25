@@ -2,18 +2,55 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <title>Avishai's FE Test</title>
+    <link rel="stylesheet" href="http://localhost:4000/static/css/normalize.css">
+    <link rel="stylesheet" href="http://localhost:4000/static/css/main.css">
+    <script src="http://localhost:4000/static/js/apiCalls.js" defer></script>
+    <script src="http://localhost:4000/static/js/uiVisuals.js" defer></script>
   </head>
   <body>
-    <h1>Coding test</h1>
-    <p>This HTML page serves as the entry point for your UI. Feel free to modify it however you need.</p>
-    <h2>Notes</h2>
-    <ul>
-      <li>The API is available under <a href="http://localhost:4000/api"><code>http://localhost:4000/api</code></a></li>
-      <ul>
-        <li><a href="http://localhost:4000/api/v1/students"><code>http://localhost:4000/api/v1/students</code></a></li>
-        <li><a href="http://localhost:4000/api/v1/exams"><code>http://localhost:4000/api/v1/exams</code></a></li>
-      </ul>
-      <li>Static files (such as this one) are available under <a href="http://localhost:4000/static"><code>http://localhost:4000/static</code></a></li>
-    </ul>
+    <div>
+      <h5>Coding test</h5>
+
+      <div class="rootTable">
+        <div class="logoSpace">
+          <h5>Logo</h5>
+        </div>
+        <section class="uiBody">
+          <nav>
+            <ul>
+              <li>
+                <div><input type="radio" id="exams" name="nav">
+                  <label for="exams">Exams</label></div>
+            </li>
+            <li>
+                <div>
+                  <input type="radio" id="students" name="nav">
+                  <label for="students">Students</label>
+                </div>
+            </li>
+            </ul>
+          </nav>
+          <main>
+            <div class="tableContainer">
+              <p>All Exams</p>
+              <table class="table">
+                <thead>
+                  <tr><th>Exam ID</th>
+                  <th>Avg Exam Grade</th>
+                  <th>Students</th></tr>
+                 
+                </thead>
+                <tbody class="tableBody">
+                
+                </tbody>
+              </table>
+            </div>
+          </main>
+        </section>
+      </div>
+    </div>
+
   </body>
+
 </html>

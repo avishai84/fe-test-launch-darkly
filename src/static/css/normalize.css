@@ -1,0 +1,58 @@
+/* Basic Normalize/Reset CSS */
+html {
+    line-height: 1.15; /* Specify a standard line height to normalize across browsers */
+    -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size in mobile browsers */
+}
+
+body {
+    margin: 0; /* Remove default margin provided by the browser */
+}
+
+main {
+    display: block; /* Older browsers do not recognize main element */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0; /* Remove default margin for headings */
+    font-size: inherit; /* Headings use the font size of the parent */
+}
+
+p {
+    margin: 0; /* Remove default margin for paragraphs */
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0; /* Remove default padding and margin for lists */
+    list-style: none; /* Remove default list styles */
+}
+
+a {
+    background-color: transparent; /* Remove default background on links */
+    text-decoration: none; /* Remove default underlines on links */
+    color: inherit; /* Inherit color from parent for links */
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit; /* Form elements use the font family of the parent */
+    font-size: 100%; /* Form elements use the font size of the parent */
+    line-height: 1.15;
+    margin: 0; /* Remove default margin for form elements */
+}
+
+button,
+input { /* Remove default border and padding for button and input elements */
+    overflow: visible;
+    border: none;
+    padding: 0;
+}
+
+button {
+    cursor: pointer; /* Ensure button elements use a pointer cursor */
+}

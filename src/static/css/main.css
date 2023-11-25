@@ -1,0 +1,188 @@
+:root {
+    --bgColor: rgb(253, 253, 247); 
+    --bgColorDark: #bfbdbdce;
+    --veryDark:rgba(0,0,0,0.8);
+    --transition:background-color 0.2s ease-in-out
+}
+.rootTable{
+    font-size: 16px;
+    max-height: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:2px solid var(--bgColorDark);
+    background-color: var(--bgColor);
+    box-shadow: 3px 3px 3px var(--bgColorDark);
+}
+.rootTable table.table{
+    width:60vw;
+    border:1px solid var(--bgColorDark);
+}
+.rootTable .logoSpace{
+    width: 100%;
+    height: 0;
+    /* display: flex; */
+    align-items: center;
+    padding: 50px 0 50px 0;
+    border-bottom:2px solid var(--bgColorDark);
+    /* margin: 6px; */
+    /* justify-content: center; */
+    align-items: center;
+    /* box-sizing: content-box; */
+    /* padding-top: 50px; */
+    /* padding-bottom: 20px; */
+}
+.rootTable .logoSpace span{
+    font-size: .85em;
+    font-weight: bold;
+    /* color: var(--veryDark); */
+    /* text-align: left; */
+    /* padding:25px; */
+    /* margin: 30px; */
+    /* display: block; */
+    /* display: flex; */
+    /* align-self: center; */
+}
+
+.rootTable .logoSpace img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.uiBody{
+    display:grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 100%;
+    grid-template-areas:
+        "sidebar main";
+    width: 100%;
+    height: 100vh;
+    max-height: 800px;
+}
+.uiBody .sidebar{
+    grid-area: sidebar;
+    background-color: var(--bgColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:auto;
+    
+}
+.uiBody nav {
+    border-right:2px solid var(--bgColorDark);
+}
+.uiBody nav ul{
+    list-style: none;
+    padding:0;
+    margin:0;
+    max-height: 800px;
+    height: 100vh;
+}
+.uiBody nav ul li{
+    max-height: 49.98vh;
+    background-color: var(--bgColor);
+    border-bottom: 1px solid var(--bgColorDark);
+    height: 50%;
+}
+.uiBody nav ul li:hover{
+    background-color: var(--bgColorDark);
+    transition: var(--transition);
+}
+.uiBody nav ul li:last-child{
+    border-bottom: none;
+}
+.uiBody nav ul li > div{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+nav ul li input[type="radio"] {
+    display: none;
+}
+
+nav ul li label {
+    cursor: pointer;
+    display: inline-block;
+    max-height:400px;
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li input[type="radio"]:checked + label {
+    background-color: var(--bgColorDark);
+}
+
+.uiBody main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes loading {
+    0% {
+        background-color: var(--bgColor);
+
+    }
+    50%{
+        background-color: var(--bgColorDark);
+        }
+    100% {
+        background-color: var(--bgColor);
+    }
+}
+
+.uiBody .loading{
+    animation: loading 2s linear infinite;
+}
+
+.uiBody .tableContainer{
+    max-height: 700px;
+    overflow: hidden;
+    position: relative;
+    overflow-y: scroll;
+}
+.uiBody .tableContainer > p {
+    position: sticky;
+    top: 0;
+    background-color: var(--bgColor);
+    padding: 20px 0;
+    margin: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+tr{
+    outline: 2px solid var(--bgColorDark);
+}
+tbody tr:hover{
+    background-color: var(--bgColorDark);
+    transition: var(--transition);
+}
+
+td {
+    border-right: 1px solid var(--bgColorDark);
+    text-align: center;
+}
+td:last-child {
+    border-right: none
+}
+.uiBody .table > thead {
+    position: sticky;
+    top: 60px;
+    left: 0;
+    background-color: var(--bgColor);
+}
+
+.uiBody  tbody.tableBody  {
+    overflow-y: scroll;
+    background-color: var(--bgColor);
+    /* border-top: 11px solid red; */
+} 

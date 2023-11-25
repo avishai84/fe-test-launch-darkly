@@ -114,3 +114,26 @@ No, pagination is not required.
 ##### Is it OK to use a client-side router to make things easier?
 
 That's OK. Please mention that in your README for the reviewer.
+
+
+### What was updated:
+
+__Project Structure__
+
+The project is organized into the following directories and files: 
+```js
+static/
+│
+├── css/
+│   └── main.css       # The main stylesheet for the application.
+│
+└── js/
+    ├── apiCalls.js    # Handles API calls to the backend.
+    └── uiVisuals.js   # Manages the dynamic visual elements of the UI.
+    
+```
+
+- `apiCalls.js`: Manages the API interactions by fetching data from the server and updating the DOM accordingly.
+- `uiVisuals.js`: Handles the dynamic rendering of UI components based on the data received from the API.
+
+Both scripts are set to defer loading, ensuring they execute after the HTML document is fully parsed but before the `DOMContentLoaded` event.
