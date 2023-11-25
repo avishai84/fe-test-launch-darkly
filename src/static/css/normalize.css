@@ -56,3 +56,12 @@ input { /* Remove default border and padding for button and input elements */
 button {
     cursor: pointer; /* Ensure button elements use a pointer cursor */
 }
+.marginAll{
+    margin: 5px 50px;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}

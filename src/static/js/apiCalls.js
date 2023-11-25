@@ -2,12 +2,11 @@
 const dataStorage = {
     allData: {},
     updateData: function(data){
-        this.allData = data;
+        this.allData = {...data};
         this.notifyNewData();
     },
     notifyNewData: function(){
         // render UI
-        console.log("NEW DATA ", this.allData);
         populateDataExamUi(this.allData);
     }
 }
@@ -18,16 +17,13 @@ const updateUI = async (data) => {
 
     const dataObject = await data;
     // when data is ready resolve loading state
-   
     // make consistent data structure
-    if(Array.isArray(data)){
+    if(Array.isArray(dataObject)){
         // student data
-        return dataStorage.updateData({students: data});
+        return dataStorage.updateData({students: dataObject});
     }else{
-        // {exams:Array<data>}
-        return dataStorage.updateData(data);
+        return dataStorage.updateData(dataObject);
     }
-    console.log("dataObject ",dataObject);
 }
 
 const getUpdateFromAPI = async (path) => {
@@ -63,12 +59,6 @@ const getUpdateFromAPI = async (path) => {
       }, pollInterval);
 }
 
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-
-//     console.log("DOMContentLoaded ");
-// });
 
 
 

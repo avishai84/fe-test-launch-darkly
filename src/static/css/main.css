@@ -1,10 +1,13 @@
 :root {
+    --generalColor: rgba(0, 0, 0, 0.742);
+    --loadingBG: rgba(66 66 63 / 61%);
     --bgColor: rgb(253, 253, 247); 
     --bgColorDark: #bfbdbdce;
     --veryDark:rgba(0,0,0,0.8);
     --transition:background-color 0.2s ease-in-out
 }
 .rootTable{
+    color: var(--generalColor);
     font-size: 16px;
     max-height: 800px;
     width: 100%;
@@ -22,28 +25,15 @@
 }
 .rootTable .logoSpace{
     width: 100%;
-    height: 0;
-    /* display: flex; */
+    display: flex;
     align-items: center;
-    padding: 50px 0 50px 0;
+    padding: 20px 0 20px 0;
     border-bottom:2px solid var(--bgColorDark);
-    /* margin: 6px; */
-    /* justify-content: center; */
     align-items: center;
-    /* box-sizing: content-box; */
-    /* padding-top: 50px; */
-    /* padding-bottom: 20px; */
 }
-.rootTable .logoSpace span{
+.rootTable .logoSpace h5{
     font-size: .85em;
     font-weight: bold;
-    /* color: var(--veryDark); */
-    /* text-align: left; */
-    /* padding:25px; */
-    /* margin: 30px; */
-    /* display: block; */
-    /* display: flex; */
-    /* align-self: center; */
 }
 
 .rootTable .logoSpace img{
@@ -79,13 +69,11 @@
     padding:0;
     margin:0;
     max-height: 800px;
-    height: 100vh;
 }
 .uiBody nav ul li{
-    max-height: 49.98vh;
     background-color: var(--bgColor);
     border-bottom: 1px solid var(--bgColorDark);
-    height: 50%;
+    height: 42vh;
 }
 .uiBody nav ul li:hover{
     background-color: var(--bgColorDark);
@@ -120,7 +108,7 @@ nav ul li input[type="radio"]:checked + label {
 
 .uiBody main{
     width: 100%;
-    height: 100%;
+    height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,18 +116,32 @@ nav ul li input[type="radio"]:checked + label {
 
 @keyframes loading {
     0% {
-        background-color: var(--bgColor);
-
+        color: var(--bgColor);
     }
     50%{
-        background-color: var(--bgColorDark);
+        color: var(--bgColorDark);
         }
     100% {
-        background-color: var(--bgColor);
+        color: var(--bgColor);
     }
 }
 
-.uiBody .loading{
+.loading{
+    width: 100%;
+    height: 100%;
+    background-color: var(--loadingBG);
+    position: absolute;
+    top:0;
+    left:0;
+}
+.loading > span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--bgColorDark);
     animation: loading 2s linear infinite;
 }
 
@@ -179,10 +181,10 @@ td:last-child {
     top: 60px;
     left: 0;
     background-color: var(--bgColor);
+    height: 50px;
 }
 
 .uiBody  tbody.tableBody  {
     overflow-y: scroll;
     background-color: var(--bgColor);
-    /* border-top: 11px solid red; */
 } 
