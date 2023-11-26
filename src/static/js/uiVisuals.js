@@ -8,7 +8,6 @@ const tableBody = document.querySelector('.uiBody .tableBody');
 // Global AbortController instance for fetch requests
 let globalAbortController = new AbortController();
 
-
 function isLoading(check){
 
     if(check){
@@ -60,7 +59,7 @@ function populateDataExamUi(data){
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    exams.addEventListener("click", async function(e) {
+    exams.addEventListener("click", async () => {
         // calling each API service separately
         // Abort any ongoing API call
         globalAbortController.abort();
@@ -71,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isLoading(false);
     });
 
-    students.addEventListener("click", async function(e) {
+    students.addEventListener("click", async () => {
         // calling each API service separately
         // Abort any ongoing API call
         globalAbortController.abort();

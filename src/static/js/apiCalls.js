@@ -26,7 +26,7 @@ const updateUI = async (data) => {
     }
 }
 
-const getUpdateFromAPI = async (path, abortController) => {
+const getUpdateFromAPI = async (url, abortController) => {
     let lastData = null;
     let attemptsTimes = 0;
     const pollInterval = 5000;
@@ -36,7 +36,7 @@ const getUpdateFromAPI = async (path, abortController) => {
     let intervalID = setInterval(async () => {
   
         try {
-            const fetchData = await fetch(path, {signal: abortController.signal});
+            const fetchData = await fetch(url, {signal: abortController.signal});
             const data = await fetchData.json();
             // check for new data
             if(JSON.stringify(lastData) === JSON.stringify(data)) {
