@@ -26,7 +26,7 @@ const updateUI = async (data) => {
     }
 }
 
-const getUpdateFromAPI = async (path) => {
+const getUpdateFromAPI = async (path, abortController) => {
     let lastData = null;
     let attemptsTimes = 0;
     const pollInterval = 5000;
@@ -34,15 +34,16 @@ const getUpdateFromAPI = async (path) => {
 
     // Call the API service
     let intervalID = setInterval(async () => {
-        const fetchData = await fetch(path);
+  
         try {
+            const fetchData = await fetch(path, {signal: abortController.signal});
             const data = await fetchData.json();
             // check for new data
             if(JSON.stringify(lastData) === JSON.stringify(data)) {
                 // no new data
                 // add attemp
                 attemptsTimes++;
-                if(attemptsTimes >= maxAttemptsTimes) {
+                if(abortController.signal.aborted || attemptsTimes >= maxAttemptsTimes) {
                     // if max attemps reached stop polling
                     clearInterval(intervalID);
                     console.log("Max attempts reached");
@@ -54,9 +55,18 @@ const getUpdateFromAPI = async (path) => {
             }
            
         } catch (error) {
-            console.error(error);
+            if (error.name === 'AbortError') {
+                console.log('Fetch request was aborted');
+            } else {
+                console.error(error);
+            }
         }
       }, pollInterval);
+
+      return() => {
+            clearInterval(intervalID);
+            abortController.abort();
+      };
 }
 
 

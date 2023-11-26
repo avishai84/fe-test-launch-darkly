@@ -5,6 +5,9 @@ const exams = document.querySelector('#exams');
 const students = document.querySelector('#students');
 const mainContent = document.querySelector('.uiBody main');
 const tableBody = document.querySelector('.uiBody .tableBody');
+// Global AbortController instance for fetch requests
+let globalAbortController = new AbortController();
+
 
 function isLoading(check){
 
@@ -15,7 +18,7 @@ function isLoading(check){
         setTimeout(() => {
             document.querySelector('.loading').classList.remove('show')
             document.querySelector('.loading').classList.add('hide');
-    }, 4000);
+    }, 2000);
     }
 }
 
@@ -59,16 +62,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     exams.addEventListener("click", async function(e) {
         // calling each API service separately
+        // Abort any ongoing API call
+        globalAbortController.abort();
+        // Create a new AbortController instance
+        globalAbortController = new AbortController();
         isLoading(true);
-    const examsAPICall = await getUpdateFromAPI('http://localhost:4000/api/v1/exams');
+        await getUpdateFromAPI('http://localhost:4000/api/v1/exams', globalAbortController);
         isLoading(false);
     });
 
     students.addEventListener("click", async function(e) {
         // calling each API service separately
+        // Abort any ongoing API call
+        globalAbortController.abort();
+        // Create a new AbortController instance
+        globalAbortController = new AbortController();
         isLoading(true);
-    const studentsAPICall = await getUpdateFromAPI('http://localhost:4000/api/v1/students');
-    isLoading(false);
+        await getUpdateFromAPI('http://localhost:4000/api/v1/students', globalAbortController);
+        isLoading(false);
     });
 
 });

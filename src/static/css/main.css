@@ -35,7 +35,6 @@
     font-size: .85em;
     font-weight: bold;
 }
-
 .rootTable .logoSpace img{
     width: 100%;
     height: 100%;
@@ -69,11 +68,13 @@
     padding:0;
     margin:0;
     max-height: 800px;
+    display: flex;
+    flex-direction: column;
 }
 .uiBody nav ul li{
     background-color: var(--bgColor);
     border-bottom: 1px solid var(--bgColorDark);
-    height: 42vh;
+    height: 49.999vh;
 }
 .uiBody nav ul li:hover{
     background-color: var(--bgColorDark);
@@ -90,7 +91,6 @@
 nav ul li input[type="radio"] {
     display: none;
 }
-
 nav ul li label {
     cursor: pointer;
     display: inline-block;
@@ -101,11 +101,9 @@ nav ul li label {
     justify-content: center;
     align-items: center;
 }
-
 nav ul li input[type="radio"]:checked + label {
     background-color: var(--bgColorDark);
 }
-
 .uiBody main{
     width: 100%;
     height: 600px;
@@ -113,7 +111,6 @@ nav ul li input[type="radio"]:checked + label {
     flex-direction: column;
     align-items: center;
 }
-
 @keyframes loading {
     0% {
         color: var(--bgColor);
@@ -125,14 +122,15 @@ nav ul li input[type="radio"]:checked + label {
         color: var(--bgColor);
     }
 }
-
 .loading{
-    width: 100%;
-    height: 100%;
+    width: 250px;
+    height: 250px;
     background-color: var(--loadingBG);
     position: absolute;
-    top:0;
-    left:0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
 }
 .loading > span{
     position: absolute;
@@ -144,7 +142,6 @@ nav ul li input[type="radio"]:checked + label {
     color: var(--bgColorDark);
     animation: loading 2s linear infinite;
 }
-
 .uiBody .tableContainer{
     max-height: 700px;
     overflow: hidden;
@@ -160,7 +157,6 @@ nav ul li input[type="radio"]:checked + label {
     margin-block-start: 0;
     margin-block-end: 0;
 }
-
 tr{
     outline: 2px solid var(--bgColorDark);
 }
@@ -168,7 +164,6 @@ tbody tr:hover{
     background-color: var(--bgColorDark);
     transition: var(--transition);
 }
-
 td {
     border-right: 1px solid var(--bgColorDark);
     text-align: center;
@@ -183,7 +178,6 @@ td:last-child {
     background-color: var(--bgColor);
     height: 50px;
 }
-
 .uiBody  tbody.tableBody  {
     overflow-y: scroll;
     background-color: var(--bgColor);
